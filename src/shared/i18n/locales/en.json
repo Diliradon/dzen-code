@@ -1,3 +1,50 @@
 {
-  "welcome": "Welcome"
+  "welcome": "Welcome",
+  "language": "Language",
+  "auth": {
+    "login": {
+      "title": "Welcome back",
+      "description": "Enter your credentials to access your account",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "password": "Password", 
+      "passwordPlaceholder": "Enter your password",
+      "signIn": "Sign in",
+      "signingIn": "Signing in...",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up",
+      "orContinueWith": "Or continue with",
+      "google": "Google",
+      "twitter": "Twitter"
+    },
+    "signup": {
+      "title": "Create an account",
+      "description": "Enter your information to get started",
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "Enter your full name",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "confirmPassword": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm your password",
+      "createAccount": "Create account",
+      "creatingAccount": "Creating account...",
+      "acceptTerms": "I agree to the",
+      "termsOfService": "Terms of Service",
+      "and": "and",
+      "privacyPolicy": "Privacy Policy",
+      "alreadyHaveAccount": "Already have an account?",
+      "signIn": "Sign in"
+    }
+  },
+  "validation": {
+    "email": "Please enter a valid email address",
+    "passwordLength": "Password must be at least 6 characters",
+    "nameLength": "Name must be at least 2 characters",
+    "passwordComplexity": "Password must contain at least one uppercase letter, one lowercase letter, and one number",
+    "passwordMinLength": "Password must be at least 8 characters",
+    "passwordsMatch": "Passwords don't match",
+    "acceptTermsRequired": "You must accept the terms and conditions"
+  }
 }

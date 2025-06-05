@@ -1,7 +1,9 @@
 'use client';
 
+import { Globe } from 'lucide-react';
+
 import { SupportedLanguage } from 'shared/i18n';
-import { useLanguage, useTranslation } from 'shared/i18n/hooks';
+import { useLanguage } from 'shared/i18n/hooks';
 
 import {
   Select,
@@ -23,7 +25,6 @@ const languageFlags: Record<SupportedLanguage, string> = {
 
 export const LanguageSwitcher = () => {
   const { currentLanguage, changeLanguage, supportedLanguages } = useLanguage();
-  const { t } = useTranslation();
 
   const handleLanguageChange = (lang: string) => {
     changeLanguage(lang as SupportedLanguage);
@@ -31,12 +32,13 @@ export const LanguageSwitcher = () => {
 
   return (
     <Select value={currentLanguage} onValueChange={handleLanguageChange}>
-      <SelectTrigger className="w-fit" aria-label={t('language')}>
+      <SelectTrigger
+        className="w-fit border-none"
+        aria-label="Language"
+        icon={false}
+      >
         <SelectValue>
-          <div className="flex items-center gap-2">
-            <span>{languageFlags[currentLanguage]}</span>
-            <span>{languageNames[currentLanguage]}</span>
-          </div>
+          <Globe className="h-4 w-4" />
         </SelectValue>
       </SelectTrigger>
       <SelectContent>

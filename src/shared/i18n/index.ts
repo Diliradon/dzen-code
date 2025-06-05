@@ -46,6 +46,10 @@ i18n
       useSuspense: false, // Disable suspense mode for SSR compatibility
     },
 
+    // Always start with fallback language to prevent hydration mismatch
+    // Language detection will happen after hydration on the client
+    lng: fallbackLng,
+
     // Debug mode (disable in production)
     debug: process.env.NODE_ENV === 'development',
   });

@@ -1,3 +1,50 @@
 {
-  "welcome": "Ласкаво просимо"
+  "welcome": "Ласкаво просимо",
+  "language": "Мова",
+  "auth": {
+    "login": {
+      "title": "З поверненням",
+      "description": "Введіть свої облікові дані для доступу до акаунту",
+      "email": "Електронна пошта",
+      "emailPlaceholder": "Введіть вашу електронну пошту",
+      "password": "Пароль",
+      "passwordPlaceholder": "Введіть ваш пароль",
+      "signIn": "Увійти",
+      "signingIn": "Вхід...",
+      "noAccount": "Немає акаунту?",
+      "signUp": "Зареєструватися",
+      "orContinueWith": "Або продовжити з",
+      "google": "Google",
+      "twitter": "Twitter"
+    },
+    "signup": {
+      "title": "Створити акаунт",
+      "description": "Введіть свою інформацію, щоб почати",
+      "fullName": "Повне ім'я",
+      "fullNamePlaceholder": "Введіть ваше повне ім'я",
+      "email": "Електронна пошта",
+      "emailPlaceholder": "Введіть вашу електронну пошту",
+      "password": "Пароль",
+      "passwordPlaceholder": "Введіть ваш пароль",
+      "confirmPassword": "Підтвердити пароль",
+      "confirmPasswordPlaceholder": "Підтвердіть ваш пароль",
+      "createAccount": "Створити акаунт",
+      "creatingAccount": "Створення акаунту...",
+      "acceptTerms": "Я погоджуюся з",
+      "termsOfService": "Умовами користування",
+      "and": "та",
+      "privacyPolicy": "Політикою конфіденційності",
+      "alreadyHaveAccount": "Вже маєте акаунт?",
+      "signIn": "Увійти"
+    }
+  },
+  "validation": {
+    "email": "Будь ласка, введіть дійсну електронну адресу",
+    "passwordLength": "Пароль повинен містити принаймні 6 символів",
+    "nameLength": "Ім'я повинно містити принаймні 2 символи",
+    "passwordComplexity": "Пароль повинен містити принаймні одну велику літеру, одну маленьку літеру та одну цифру",
+    "passwordMinLength": "Пароль повинен містити принаймні 8 символів",
+    "passwordsMatch": "Паролі не співпадають",
+    "acceptTermsRequired": "Ви повинні прийняти умови користування"
+  }
 } 
