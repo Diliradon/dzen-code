@@ -1,11 +1,19 @@
 import type { Config } from 'tailwindcss';
 import plugin from 'tailwindcss/plugin';
 
+export const screens = {
+  sm: '320px',
+  md: '640px',
+  lg: '1024px',
+  xl: '1200px',
+}
+
 const config: Config = {
   content: ['./src/**/*.{ts,tsx}'],
   darkMode: ["class", 'class'],
   future: { hoverOnlyWhenSupported: true },
   theme: {
+    screens,
   	extend: {
   		fontFamily: {
   			urbanist: [
