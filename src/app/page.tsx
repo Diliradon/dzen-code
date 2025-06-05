@@ -1,13 +1,7 @@
-import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
-
-import { queryClient } from 'shared/lib';
-
 const HomePage = () => {
   return (
-    <main className="p-2">
-      <HydrationBoundary state={dehydrate(queryClient)}>
-        <h1>Hello World</h1>
-      </HydrationBoundary>
+    <main className="min-h-screen bg-gray-50 p-8">
+      <h1>Hello World</h1>
     </main>
   );
 };
