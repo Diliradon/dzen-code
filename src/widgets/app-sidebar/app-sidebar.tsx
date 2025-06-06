@@ -2,9 +2,10 @@
 
 import * as React from 'react';
 
-import { Box, Home, LogOut, Package } from 'lucide-react';
+import Link from 'next/link';
 
-import { useAuth } from 'shared/lib';
+import { Box, Home, Package } from 'lucide-react';
+
 import {
   Sidebar,
   SidebarContent,
@@ -35,40 +36,21 @@ const navigation = [
 
 export const AppSidebar = ({
   ...props
-}: React.ComponentProps<typeof Sidebar>) => {
-  const { user, logout } = useAuth();
-
-  const handleLogout = () => {
-    logout();
-  };
-
-  return (
-    <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader>
-        <NavUser
-          user={{
-            name: user?.name || 'User',
-            email: user?.email || 'user@example.com',
-            avatar: '/avatars/shadcn.jpg',
-          }}
-        />
-      </SidebarHeader>
-      <SidebarContent>
-        {navigation.map(navItem => (
-          <SidebarNavItem key={navItem.name} {...navItem} />
-        ))}
-      </SidebarContent>
-      <SidebarFooter className="flex-row items-center gap-4 text-nowrap p-4">
-        <button
-          type="button"
-          onClick={handleLogout}
-          className="flex items-center gap-4 text-red-500 transition-colors hover:text-red-600"
-        >
-          <LogOut size={16} className="min-w-4" />
-          <span>Log out</span>
-        </button>
-      </SidebarFooter>
-      <SidebarRail />
-    </Sidebar>
-  );
-};
+}: React.ComponentProps<typeof Sidebar>) => (
+  <Sidebar collapsible="icon" {...props}>
+    <SidebarHeader>
+      <NavUser />
+    </SidebarHeader>
+    <SidebarContent>
+      {navigation.map(navItem => (
+        <SidebarNavItem key={navItem.name} {...navItem} />
+      ))}
+    </SidebarContent>
+    <SidebarFooter>
+      <Link href="https://github.com/Diliradon" target="_blank">
+        Git Hub
+      </Link>
+    </SidebarFooter>
+    <SidebarRail />
+  </Sidebar>
+);
