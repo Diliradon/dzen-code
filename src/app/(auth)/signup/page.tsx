@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Mail, User } from 'lucide-react';
@@ -12,6 +13,7 @@ import { z } from 'zod';
 
 import { MIN_NAME_LENGTH, MIN_PASSWORD_LENGTH } from 'shared/constants';
 import { useTranslation } from 'shared/i18n/hooks';
+import { useAuth } from 'shared/lib';
 import {
   Button,
   Card,
@@ -33,12 +35,8 @@ import {
 
 import { useRegister } from '../../../entities/auth';
 
-const SignupPage = () => {
-  const { t } = useTranslation();
-  const [showPassword, setShowPassword] = useState(false);
-  const registerMutation = useRegister();
-
-  const signupSchema = z
+const getSignupSchema = (t: (key: string) => string) =>
+  z
     .object({
       name: z.string().min(MIN_NAME_LENGTH, t('validation.nameLength')),
       email: z.string().email(t('validation.email')),
@@ -58,6 +56,15 @@ const SignupPage = () => {
       message: t('validation.passwordsMatch'),
       path: ['confirmPassword'],
     });
+
+const SignupPage = () => {
+  const { t } = useTranslation();
+  const [showPassword, setShowPassword] = useState(false);
+  const registerMutation = useRegister();
+  const router = useRouter();
+  const { login } = useAuth();
+
+  const signupSchema = useMemo(() => getSignupSchema(t), [t]);
 
   type SignupFormData = z.infer<typeof signupSchema>;
 
@@ -80,11 +87,13 @@ const SignupPage = () => {
         name: data.name,
       },
       {
-        onSuccess: () => {
+        onSuccess: response => {
+          login(response.data.token, response.data.user);
           toast.success(
             t('auth.signup.registrationSuccess') ||
               'Account created successfully!',
           );
+          router.push('/dashboard');
         },
         onError: () => {
           toast.error(

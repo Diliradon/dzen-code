@@ -6,9 +6,11 @@ const instance = axios.create({
 });
 
 const getToken = () => {
-  const token = 'token';
+  if (typeof window !== 'undefined') {
+    return localStorage.getItem('authToken');
+  }
 
-  return token;
+  return null;
 };
 
 instance.interceptors.response.use(
@@ -17,7 +19,12 @@ instance.interceptors.response.use(
   },
   error => {
     if (error.response?.status === 401) {
-      // Handle unauthorized access - implement proper error handling here
+      // Handle unauthorized access - clear auth data and redirect to login
+      if (typeof window !== 'undefined') {
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('authUser');
+        window.location.href = '/login';
+      }
     }
 
     return Promise.reject(error);

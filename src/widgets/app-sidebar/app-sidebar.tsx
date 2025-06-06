@@ -4,6 +4,7 @@ import * as React from 'react';
 
 import { Box, Home, LogOut, Package } from 'lucide-react';
 
+import { useAuth } from 'shared/lib';
 import {
   Sidebar,
   SidebarContent,
@@ -35,13 +36,19 @@ const navigation = [
 export const AppSidebar = ({
   ...props
 }: React.ComponentProps<typeof Sidebar>) => {
+  const { user, logout } = useAuth();
+
+  const handleLogout = () => {
+    logout();
+  };
+
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
         <NavUser
           user={{
-            name: 'shadcn',
-            email: 'm@example.com',
+            name: user?.name || 'User',
+            email: user?.email || 'user@example.com',
             avatar: '/avatars/shadcn.jpg',
           }}
         />
@@ -52,8 +59,14 @@ export const AppSidebar = ({
         ))}
       </SidebarContent>
       <SidebarFooter className="flex-row items-center gap-4 text-nowrap p-4">
-        <LogOut size={16} className="min-w-4 text-red-500" />
-        <span className="text-red-500">Log out</span>
+        <button
+          type="button"
+          onClick={handleLogout}
+          className="flex items-center gap-4 text-red-500 transition-colors hover:text-red-600"
+        >
+          <LogOut size={16} className="min-w-4" />
+          <span>Log out</span>
+        </button>
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>

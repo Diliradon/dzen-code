@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Mail } from 'lucide-react';
@@ -12,6 +13,7 @@ import { z } from 'zod';
 
 import { MIN_PASSWORD_LENGTH } from 'shared/constants';
 import { useTranslation } from 'shared/i18n/hooks';
+import { useAuth } from 'shared/lib';
 import {
   Button,
   Card,
@@ -32,17 +34,22 @@ import {
 
 import { useLogin } from '../../../entities/auth';
 
-const LoginPage = () => {
-  const { t } = useTranslation();
-  const [showPassword, setShowPassword] = useState(false);
-  const loginMutation = useLogin();
-
-  const loginSchema = z.object({
+const getLoginSchema = (t: (key: string) => string) =>
+  z.object({
     email: z.string().email(t('validation.email')),
     password: z
       .string()
       .min(MIN_PASSWORD_LENGTH, t('validation.passwordLength')),
   });
+
+const LoginPage = () => {
+  const { t } = useTranslation();
+  const [showPassword, setShowPassword] = useState(false);
+  const loginMutation = useLogin();
+  const router = useRouter();
+  const { login } = useAuth();
+
+  const loginSchema = useMemo(() => getLoginSchema(t), [t]);
 
   type LoginFormData = z.infer<typeof loginSchema>;
 
@@ -61,8 +68,10 @@ const LoginPage = () => {
         password: data.password,
       },
       {
-        onSuccess: () => {
+        onSuccess: response => {
+          login(response.data.token, response.data.user);
           toast.success(t('auth.login.loginSuccess') || 'Login successful!');
+          router.push('/dashboard');
         },
         onError: () => {
           toast.error(

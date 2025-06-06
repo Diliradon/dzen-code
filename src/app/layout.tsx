@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { Urbanist } from 'next/font/google';
 
-import { cn } from 'shared/lib';
+import { AuthProvider, cn } from 'shared/lib';
 import { I18nProvider, TanStackQueryProvider } from 'shared/providers';
 import { Toaster } from 'shared/ui';
 
@@ -33,12 +33,14 @@ const RootLayout = ({ children }: Props) => {
           urbanist.className,
         )}
       >
-        <I18nProvider>
-          <TanStackQueryProvider>
-            {children}
-            <Toaster />
-          </TanStackQueryProvider>
-        </I18nProvider>
+        <AuthProvider>
+          <I18nProvider>
+            <TanStackQueryProvider>
+              {children}
+              <Toaster />
+            </TanStackQueryProvider>
+          </I18nProvider>
+        </AuthProvider>
       </body>
     </html>
   );
