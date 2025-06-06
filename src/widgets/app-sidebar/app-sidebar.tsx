@@ -4,7 +4,7 @@ import * as React from 'react';
 
 import Link from 'next/link';
 
-import { Box, Home, Package, ShoppingCart } from 'lucide-react';
+import { Box, Package, ShoppingCart } from 'lucide-react';
 
 import {
   LanguageSwitcher,
@@ -18,11 +18,6 @@ import {
 import { NavUser, SidebarNavItem } from './ui';
 
 const navigation = [
-  {
-    name: 'Dashboard',
-    href: '/dashboard',
-    icon: <Home size={16} className="min-w-4" />,
-  },
   {
     name: 'Orders',
     href: '/orders',

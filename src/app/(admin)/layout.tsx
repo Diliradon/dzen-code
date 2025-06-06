@@ -10,9 +10,6 @@ import { Separator, SidebarProvider, SidebarTrigger } from 'shared/ui';
 
 const getPageTitle = (pathname: string): string => {
   switch (pathname) {
-    case '/dashboard':
-      return 'Dashboard';
-
     case '/orders':
       return 'Orders';
 

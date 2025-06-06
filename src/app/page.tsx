@@ -25,9 +25,9 @@ export default function HomePage() {
             </p>
 
             <div className="flex flex-col justify-center gap-4 md:flex-row">
-              <Link href="/dashboard">
+              <Link href="/products">
                 <Button size="lg" className="px-8 py-3 text-lg">
-                  {t('homepage.hero.goToDashboard')}
+                  {t('homepage.hero.goToProducts')}
                 </Button>
               </Link>
               <Link href="https://dzencode.com/" target="_blank">
@@ -208,13 +208,13 @@ export default function HomePage() {
             <p className="mx-auto mb-8 max-w-2xl text-gray-300">
               {t('homepage.cta.description')}
             </p>
-            <Link href="/dashboard">
+            <Link href="/products">
               <Button
                 size="lg"
                 variant="outline"
                 className="border-white text-gray-600 hover:bg-white hover:text-gray-900"
               >
-                {t('homepage.cta.exploreDashboard')}
+                {t('homepage.cta.exploreProducts')}
               </Button>
             </Link>
           </div>

@@ -6,7 +6,7 @@
       "title": "Ласкаво просимо до",
       "appName": "Dzen Code",
       "description": "Сучасний Next.js шаблон з TypeScript, Tailwind CSS та красивими UI компонентами. Почніть з дослідження вашої панелі управління.",
-      "goToDashboard": "Перейти до панелі",
+      "goToProducts": "Перейти до товарів",
       "learnMore": "Дізнатися більше"
     },
     "features": {

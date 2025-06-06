@@ -6,7 +6,7 @@
       "title": "Welcome to",
       "appName": "Dzen Code",
       "description": "A modern Next.js template with TypeScript, Tailwind CSS, and beautiful UI components. Get started by exploring your dashboard.",
-      "goToDashboard": "Go to Dashboard",
+      "goToProducts": "Go to Products",
       "learnMore": "Learn More"
     },
     "features": {
@@ -40,7 +40,7 @@
     "cta": {
       "title": "Ready to Get Started?",
       "description": "Explore the dashboard to see all the features and components in action.",
-      "exploreDashboard": "Explore Dashboard"
+      "exploreProducts": "Explore Products"
     }
   },
   "auth": {

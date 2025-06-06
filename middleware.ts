@@ -2,9 +2,9 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 // Define protected routes
-const protectedRoutes = ['/dashboard', '/orders', '/products', '/'];
+const protectedRoutes = ['/cart', '/orders', '/products', '/'];
 
-// Define auth routes (should redirect to dashboard if authenticated)
+// Define auth routes (should redirect to products if authenticated)
 const authRoutes = ['/login', '/signup', '/auth'];
 
 export function middleware(request: NextRequest) {
@@ -29,9 +29,9 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(loginUrl);
   }
 
-  // If user is on an auth route and authenticated, redirect to dashboard
+  // If user is on an auth route and authenticated, redirect to products
   if (isAuthRoute && token) {
-    return NextResponse.redirect(new URL('/dashboard', request.url));
+    return NextResponse.redirect(new URL('/products', request.url));
   }
 
   return NextResponse.next();
