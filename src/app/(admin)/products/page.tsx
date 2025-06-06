@@ -2,69 +2,7 @@
 
 import { Badge, Card } from 'shared/ui';
 
-// Mock data for products
-const products = [
-  {
-    id: 1,
-    name: 'Wireless Headphones',
-    price: 99.99,
-    category: 'Electronics',
-    stock: 25,
-    status: 'in-stock',
-    image: '/api/placeholder/300/200',
-    description: 'High-quality wireless headphones with noise cancellation',
-  },
-  {
-    id: 2,
-    name: 'Smartphone Case',
-    price: 24.99,
-    category: 'Accessories',
-    stock: 0,
-    status: 'out-of-stock',
-    image: '/api/placeholder/300/200',
-    description: 'Durable protective case for smartphones',
-  },
-  {
-    id: 3,
-    name: 'Laptop Stand',
-    price: 49.99,
-    category: 'Office',
-    stock: 12,
-    status: 'in-stock',
-    image: '/api/placeholder/300/200',
-    description: 'Adjustable aluminum laptop stand for better ergonomics',
-  },
-  {
-    id: 4,
-    name: 'USB-C Cable',
-    price: 19.99,
-    category: 'Accessories',
-    stock: 5,
-    status: 'low-stock',
-    image: '/api/placeholder/300/200',
-    description: 'Fast charging USB-C cable - 6ft length',
-  },
-  {
-    id: 5,
-    name: 'Mechanical Keyboard',
-    price: 149.99,
-    category: 'Electronics',
-    stock: 8,
-    status: 'in-stock',
-    image: '/api/placeholder/300/200',
-    description: 'RGB mechanical keyboard with tactile switches',
-  },
-  {
-    id: 6,
-    name: 'Desk Organizer',
-    price: 34.99,
-    category: 'Office',
-    stock: 15,
-    status: 'in-stock',
-    image: '/api/placeholder/300/200',
-    description: 'Bamboo desk organizer with multiple compartments',
-  },
-];
+import { useProducts } from '../../../entities/products';
 
 const getStockStatusColor = (status: string) => {
   switch (status) {
@@ -99,6 +37,32 @@ const getCategoryColor = (category: string) => {
 };
 
 export default function ProductsPage() {
+  const { data, isLoading, error } = useProducts();
+
+  if (isLoading) {
+    return (
+      <section className="m-4 h-full space-y-6 rounded-lg bg-gray-50 p-6">
+        <div className="flex h-64 items-center justify-center">
+          <div className="text-lg text-gray-500">Loading products...</div>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="m-4 h-full space-y-6 rounded-lg bg-gray-50 p-6">
+        <div className="flex h-64 items-center justify-center">
+          <div className="text-lg text-red-500">
+            Error loading products: {error.message}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  const products = data?.products || [];
+
   return (
     <section className="m-4 h-full space-y-6 rounded-lg bg-gray-50 p-6">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-4">

@@ -1,0 +1,124 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Wireless Headphones",
+      "price": 99.99,
+      "category": "Electronics",
+      "stock": 25,
+      "status": "in-stock",
+      "image": "/api/placeholder/300/200",
+      "description": "High-quality wireless headphones with noise cancellation"
+    },
+    {
+      "id": 2,
+      "name": "Smartphone Case",
+      "price": 24.99,
+      "category": "Accessories",
+      "stock": 0,
+      "status": "out-of-stock",
+      "image": "/api/placeholder/300/200",
+      "description": "Durable protective case for smartphones"
+    },
+    {
+      "id": 3,
+      "name": "Laptop Stand",
+      "price": 49.99,
+      "category": "Office",
+      "stock": 12,
+      "status": "in-stock",
+      "image": "/api/placeholder/300/200",
+      "description": "Adjustable aluminum laptop stand for better ergonomics"
+    },
+    {
+      "id": 4,
+      "name": "USB-C Cable",
+      "price": 19.99,
+      "category": "Accessories",
+      "stock": 5,
+      "status": "low-stock",
+      "image": "/api/placeholder/300/200",
+      "description": "Fast charging USB-C cable - 6ft length"
+    },
+    {
+      "id": 5,
+      "name": "Mechanical Keyboard",
+      "price": 149.99,
+      "category": "Electronics",
+      "stock": 8,
+      "status": "in-stock",
+      "image": "/api/placeholder/300/200",
+      "description": "RGB mechanical keyboard with tactile switches"
+    },
+    {
+      "id": 6,
+      "name": "Desk Organizer",
+      "price": 34.99,
+      "category": "Office",
+      "stock": 15,
+      "status": "in-stock",
+      "image": "/api/placeholder/300/200",
+      "description": "Bamboo desk organizer with multiple compartments"
+    },
+    {
+      "id": 7,
+      "name": "Wireless Mouse",
+      "price": 39.99,
+      "category": "Electronics",
+      "stock": 18,
+      "status": "in-stock",
+      "image": "/api/placeholder/300/200",
+      "description": "Ergonomic wireless mouse with precision tracking"
+    },
+    {
+      "id": 8,
+      "name": "Monitor Stand",
+      "price": 89.99,
+      "category": "Office",
+      "stock": 3,
+      "status": "low-stock",
+      "image": "/api/placeholder/300/200",
+      "description": "Dual monitor stand with adjustable height and tilt"
+    },
+    {
+      "id": 9,
+      "name": "Bluetooth Speaker",
+      "price": 79.99,
+      "category": "Electronics",
+      "stock": 0,
+      "status": "out-of-stock",
+      "image": "/api/placeholder/300/200",
+      "description": "Portable Bluetooth speaker with 360-degree sound"
+    },
+    {
+      "id": 10,
+      "name": "Phone Charger",
+      "price": 29.99,
+      "category": "Accessories",
+      "stock": 22,
+      "status": "in-stock",
+      "image": "/api/placeholder/300/200",
+      "description": "Fast wireless charging pad for smartphones"
+    },
+    {
+      "id": 11,
+      "name": "Cable Management Kit",
+      "price": 16.99,
+      "category": "Office",
+      "stock": 7,
+      "status": "in-stock",
+      "image": "/api/placeholder/300/200",
+      "description": "Complete cable management solution for clean desk setup"
+    },
+    {
+      "id": 12,
+      "name": "Screen Cleaner",
+      "price": 12.99,
+      "category": "Accessories",
+      "stock": 4,
+      "status": "low-stock",
+      "image": "/api/placeholder/300/200",
+      "description": "Professional screen cleaning kit for laptops and monitors"
+    }
+  ]
+}
