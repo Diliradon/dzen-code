@@ -93,7 +93,7 @@ const SignupPage = () => {
             t('auth.signup.registrationSuccess') ||
               'Account created successfully!',
           );
-          router.push('/dashboard');
+          router.push('/');
         },
         onError: () => {
           toast.error(

@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { Box, Home, Package } from 'lucide-react';
 
 import {
+  LanguageSwitcher,
   Sidebar,
   SidebarContent,
   SidebarFooter,
@@ -46,10 +47,11 @@ export const AppSidebar = ({
         <SidebarNavItem key={navItem.name} {...navItem} />
       ))}
     </SidebarContent>
-    <SidebarFooter>
+    <SidebarFooter className="flex items-center justify-between">
       <Link href="https://github.com/Diliradon" target="_blank">
         Git Hub
       </Link>
+      <LanguageSwitcher />
     </SidebarFooter>
     <SidebarRail />
   </Sidebar>

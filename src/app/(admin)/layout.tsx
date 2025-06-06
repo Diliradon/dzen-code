@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 
 import { Menu } from 'lucide-react';
 
-import { AppSidebar } from 'widgets';
+import { AppSidebar, TopMenu } from 'widgets';
 import { ProtectedRoute } from 'shared/lib';
 import { Separator, SidebarProvider, SidebarTrigger } from 'shared/ui';
 
@@ -37,7 +37,7 @@ export default function AdminLayout({
       <SidebarProvider>
         <AppSidebar />
         <main className="flex-1">
-          <header className="group-has-data-[collapsible=icon]/sidebar-wrapper:h-12 flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear">
+          <header className="group-has-data-[collapsible=icon]/sidebar-wrapper:h-12 sticky top-0 z-10 flex h-16 shrink-0 items-center gap-2 border-b bg-white transition-[width,height] ease-linear">
             <div className="flex items-center gap-2 px-4">
               <SidebarTrigger className="-ml-2">
                 <Menu />
@@ -48,6 +48,8 @@ export default function AdminLayout({
               />
               <h1 className="text-2xl font-bold">{pageTitle}</h1>
             </div>
+            <div className="flex-1" />
+            <TopMenu className="px-4" />
           </header>
           {children}
         </main>

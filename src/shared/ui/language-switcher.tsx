@@ -33,7 +33,7 @@ export const LanguageSwitcher = () => {
   return (
     <Select value={currentLanguage} onValueChange={handleLanguageChange}>
       <SelectTrigger
-        className="w-fit border-none"
+        className="w-fit border-none hover:bg-gray-100"
         aria-label="Language"
         icon={false}
       >

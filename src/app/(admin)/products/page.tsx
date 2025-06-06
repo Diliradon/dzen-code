@@ -100,7 +100,7 @@ const getCategoryColor = (category: string) => {
 
 export default function ProductsPage() {
   return (
-    <section className="space-y-6 p-6">
+    <section className="m-4 h-full space-y-6 rounded-lg bg-gray-50 p-6">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
         <Card className="p-4">
           <h3 className="text-sm font-semibold text-gray-500">

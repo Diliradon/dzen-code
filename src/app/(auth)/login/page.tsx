@@ -71,7 +71,7 @@ const LoginPage = () => {
         onSuccess: response => {
           login(response.data.token, response.data.user);
           toast.success(t('auth.login.loginSuccess') || 'Login successful!');
-          router.push('/dashboard');
+          router.push('/');
         },
         onError: () => {
           toast.error(
