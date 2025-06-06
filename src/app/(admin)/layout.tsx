@@ -4,9 +4,8 @@ import { usePathname } from 'next/navigation';
 
 import { Menu } from 'lucide-react';
 
+import { AppSidebar } from 'widgets';
 import { Separator, SidebarProvider, SidebarTrigger } from 'shared/ui';
-// eslint-disable-next-line no-restricted-imports
-import { AppSidebar } from 'widgets/app-sidebar';
 
 const getPageTitle = (pathname: string): string => {
   switch (pathname) {

@@ -15,3 +15,4 @@ export * from './separator';
 export * from './dropdown-menu';
 export * from './avatar';
 export * from './badge';
+export * from './sonner';

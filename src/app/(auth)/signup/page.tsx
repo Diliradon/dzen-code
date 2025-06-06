@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Mail, User } from 'lucide-react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 import { z } from 'zod';
 
 import { MIN_NAME_LENGTH, MIN_PASSWORD_LENGTH } from 'shared/constants';
@@ -30,10 +31,12 @@ import {
   LanguageSwitcher,
 } from 'shared/ui';
 
+import { useRegister } from '../../../entities/auth';
+
 const SignupPage = () => {
   const { t } = useTranslation();
   const [showPassword, setShowPassword] = useState(false);
-  const [isLoading] = useState(false);
+  const registerMutation = useRegister();
 
   const signupSchema = z
     .object({
@@ -69,8 +72,28 @@ const SignupPage = () => {
     },
   });
 
-  const onSubmit = async () => {
-    // TODO: Implement actual signup logic
+  const onSubmit = (data: SignupFormData) => {
+    registerMutation.mutate(
+      {
+        email: data.email,
+        password: data.password,
+        name: data.name,
+      },
+      {
+        onSuccess: () => {
+          toast.success(
+            t('auth.signup.registrationSuccess') ||
+              'Account created successfully!',
+          );
+        },
+        onError: () => {
+          toast.error(
+            t('auth.signup.registrationError') ||
+              'Registration failed. Please try again.',
+          );
+        },
+      },
+    );
   };
 
   return (
@@ -101,7 +124,7 @@ const SignupPage = () => {
                       <Input
                         placeholder={t('auth.signup.fullNamePlaceholder')}
                         className="pl-10"
-                        disabled={isLoading}
+                        disabled={registerMutation.isPending}
                         {...field}
                       />
                     </div>
@@ -124,7 +147,7 @@ const SignupPage = () => {
                         placeholder={t('auth.signup.emailPlaceholder')}
                         className="pl-10"
                         type="email"
-                        disabled={isLoading}
+                        disabled={registerMutation.isPending}
                         {...field}
                       />
                     </div>
@@ -147,7 +170,7 @@ const SignupPage = () => {
                       placeholder={t('auth.signup.passwordPlaceholder')}
                       className="pl-10 pr-10"
                       type={showPassword ? 'text' : 'password'}
-                      disabled={isLoading}
+                      disabled={registerMutation.isPending}
                       {...field}
                     />
                   </FormControl>
@@ -169,7 +192,7 @@ const SignupPage = () => {
                       placeholder={t('auth.signup.confirmPasswordPlaceholder')}
                       className="pl-10 pr-10"
                       type={showPassword ? 'text' : 'password'}
-                      disabled={isLoading}
+                      disabled={registerMutation.isPending}
                       {...field}
                     />
                   </FormControl>
@@ -187,7 +210,7 @@ const SignupPage = () => {
                     <Checkbox
                       checked={field.value}
                       onCheckedChange={field.onChange}
-                      disabled={isLoading}
+                      disabled={registerMutation.isPending}
                     />
                   </FormControl>
                   <div className="space-y-1 leading-none">
@@ -213,8 +236,12 @@ const SignupPage = () => {
               )}
             />
 
-            <Button type="submit" className="w-full" disabled={isLoading}>
-              {isLoading
+            <Button
+              type="submit"
+              className="w-full"
+              disabled={registerMutation.isPending}
+            >
+              {registerMutation.isPending
                 ? t('auth.signup.creatingAccount')
                 : t('auth.signup.createAccount')}
             </Button>

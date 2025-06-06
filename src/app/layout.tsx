@@ -5,6 +5,7 @@ import { Urbanist } from 'next/font/google';
 
 import { cn } from 'shared/lib';
 import { I18nProvider, TanStackQueryProvider } from 'shared/providers';
+import { Toaster } from 'shared/ui';
 
 import 'app/styles/global.css';
 
@@ -33,7 +34,10 @@ const RootLayout = ({ children }: Props) => {
         )}
       >
         <I18nProvider>
-          <TanStackQueryProvider>{children}</TanStackQueryProvider>
+          <TanStackQueryProvider>
+            {children}
+            <Toaster />
+          </TanStackQueryProvider>
         </I18nProvider>
       </body>
     </html>

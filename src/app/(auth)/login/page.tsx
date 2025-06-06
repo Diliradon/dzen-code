@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Mail } from 'lucide-react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 import { z } from 'zod';
 
 import { MIN_PASSWORD_LENGTH } from 'shared/constants';
@@ -29,10 +30,12 @@ import {
   LanguageSwitcher,
 } from 'shared/ui';
 
+import { useLogin } from '../../../entities/auth';
+
 const LoginPage = () => {
   const { t } = useTranslation();
   const [showPassword, setShowPassword] = useState(false);
-  const [isLoading] = useState(false);
+  const loginMutation = useLogin();
 
   const loginSchema = z.object({
     email: z.string().email(t('validation.email')),
@@ -51,8 +54,23 @@ const LoginPage = () => {
     },
   });
 
-  const onSubmit = () => {
-    // TODO: Implement actual login logic
+  const onSubmit = (data: LoginFormData) => {
+    loginMutation.mutate(
+      {
+        email: data.email,
+        password: data.password,
+      },
+      {
+        onSuccess: () => {
+          toast.success(t('auth.login.loginSuccess') || 'Login successful!');
+        },
+        onError: () => {
+          toast.error(
+            t('auth.login.loginError') || 'Login failed. Please try again.',
+          );
+        },
+      },
+    );
   };
 
   return (
@@ -84,7 +102,7 @@ const LoginPage = () => {
                         placeholder={t('auth.login.emailPlaceholder')}
                         className="pl-10"
                         type="email"
-                        disabled={isLoading}
+                        disabled={loginMutation.isPending}
                         {...field}
                       />
                     </div>
@@ -107,7 +125,7 @@ const LoginPage = () => {
                       placeholder={t('auth.login.passwordPlaceholder')}
                       className="pl-10 pr-10"
                       type={showPassword ? 'text' : 'password'}
-                      disabled={isLoading}
+                      disabled={loginMutation.isPending}
                       {...field}
                     />
                   </FormControl>
@@ -116,8 +134,14 @@ const LoginPage = () => {
               )}
             />
 
-            <Button type="submit" className="w-full" disabled={isLoading}>
-              {isLoading ? t('auth.login.signingIn') : t('auth.login.signIn')}
+            <Button
+              type="submit"
+              className="w-full"
+              disabled={loginMutation.isPending}
+            >
+              {loginMutation.isPending
+                ? t('auth.login.signingIn')
+                : t('auth.login.signIn')}
             </Button>
           </form>
         </Form>
@@ -145,7 +169,11 @@ const LoginPage = () => {
           </div>
         </div>
 
-        <Button variant="outline" disabled={isLoading} className="w-full">
+        <Button
+          variant="outline"
+          disabled={loginMutation.isPending}
+          className="w-full"
+        >
           <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
             <path
               fill="currentColor"
