@@ -3,11 +3,8 @@
 </div>
 
 
-## [Lumitech](https://lumitech.co/) Next.js Template ⚡
-The Lumitech Next.js Template provides a powerful and modern starting point for building fast, scalable, and maintainable web applications. With a clean architecture and pre-configured best practices, this template ensures that your development process is efficient and the project is production-ready.
-
-### About Lumitech
-[Lumitech](https://lumitech.co/) is a global custom software development company helping tech businesses build successful teams and innovative products. With a 600% growth since 2022, our team of engineers, AI/ML specialists, and product managers delivers high-quality software using the latest technologies.
+## Next.js Template ⚡
+This Next.js Template provides a powerful and modern starting point for building fast, scalable, and maintainable web applications. With a clean architecture and pre-configured best practices, this template ensures that your development process is efficient and the project is production-ready.
 
 ### Why Use This Template? <br>
 This template is designed to accelerate and simplify development by providing modern technologies, a well-structured architecture, and ready-to-use examples:
@@ -85,7 +82,7 @@ You will have server running at:
 
 ## Guidelines
 ### 📝 Commits format
-Commitlint is used to check if your commit messages meet the [conventional commit format](https://www.conventionalcommits.org/en/v1.0.0/). This format helps create a consistent, structured commit history, making it easier to understand the project’s development over time, automate changelog generation, and manage versioning.
+Commitlint is used to check if your commit messages meet the [conventional commit format](https://www.conventionalcommits.org/en/v1.0.0/). This format helps create a consistent, structured commit history, making it easier to understand the project's development over time, automate changelog generation, and manage versioning.
 The commit message format follows the pattern:
 ```
 type(scope?): subject
@@ -117,7 +114,7 @@ Common types according to [commitlint-config-conventional](https://github.com/co
 * **style**: Changes that do not affect the code's logic (e.g., formatting).
 * **test**: Adds or modifies tests.
 #### Use Commitizen to Commit
-Once you’ve installed all the required libraries, run ```yarn install```. After everything is set up, when you run ```git commit```, Commitizen will automatically trigger and ask you to choose the type of commit, enter a scope (if applicable), and provide a subject for your commit.
+Once you've installed all the required libraries, run ```yarn install```. After everything is set up, when you run ```git commit```, Commitizen will automatically trigger and ask you to choose the type of commit, enter a scope (if applicable), and provide a subject for your commit.
 </br>
 To start the commit redactor, simply run:
 ```
@@ -278,7 +275,7 @@ const sessionExpired = env.NEXT_AUTH_SESSION_EXPIRED; // Access server-side vari
 <br>
 
 ### 🔗 Properly Using Import Aliases in Your Project
-In this template, import aliases are preconfigured for you, so you don’t need to worry about setting them up. You can use these aliases to simplify your imports, making the code cleaner and more maintainable.
+In this template, import aliases are preconfigured for you, so you don't need to worry about setting them up. You can use these aliases to simplify your imports, making the code cleaner and more maintainable.
 
 How to Use Import Aliases:
 Once the alias configuration is set up, you can start using them in your imports right away.
@@ -289,7 +286,7 @@ import { UserModel } from 'entities';
 import { LoginButton } from 'features';
 import { fetchData } from 'shared/utils';
 ```
-**Avoid Deep Imports:** Keep your imports at the high-level feature or domain folder to maintain modularity. Don’t reference deep subdirectories.
+**Avoid Deep Imports:** Keep your imports at the high-level feature or domain folder to maintain modularity. Don't reference deep subdirectories.
 ```
 // ✅ Good: import from a high-level alias
 import { LoginForm } from 'features';
