@@ -18,7 +18,7 @@
       "stock": 0,
       "status": "out-of-stock",
       "image": "/api/placeholder/300/200",
-      "description": "Durable protective case for smartphones"
+      "description": "Durable protective case for smartphones with a built-in screen protector"
     },
     {
       "id": 3,
@@ -38,7 +38,7 @@
       "stock": 5,
       "status": "low-stock",
       "image": "/api/placeholder/300/200",
-      "description": "Fast charging USB-C cable - 6ft length"
+      "description": "Fast charging USB-C cable - 6ft length with a built-in screen protector"
     },
     {
       "id": 5,

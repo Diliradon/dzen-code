@@ -16,6 +16,9 @@ const getPageTitle = (pathname: string): string => {
     case '/orders':
       return 'Orders';
 
+    case '/cart':
+      return 'Cart';
+
     case '/products':
       return 'Products';
 
@@ -51,7 +54,7 @@ export default function AdminLayout({
             <div className="flex-1" />
             <TopMenu className="px-4" />
           </header>
-          {children}
+          <div className="flex flex-col gap-4">{children}</div>
         </main>
       </SidebarProvider>
     </ProtectedRoute>

@@ -4,7 +4,7 @@ import * as React from 'react';
 
 import Link from 'next/link';
 
-import { Box, Home, Package } from 'lucide-react';
+import { Box, Home, Package, ShoppingCart } from 'lucide-react';
 
 import {
   LanguageSwitcher,
@@ -27,6 +27,11 @@ const navigation = [
     name: 'Orders',
     href: '/orders',
     icon: <Package size={16} className="min-w-4" />,
+  },
+  {
+    name: 'Cart',
+    href: '/cart',
+    icon: <ShoppingCart size={16} className="min-w-4" />,
   },
   {
     name: 'Products',

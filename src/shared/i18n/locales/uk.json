@@ -91,5 +91,101 @@
     "passwordMinLength": "Пароль повинен містити принаймні 8 символів",
     "passwordsMatch": "Паролі не співпадають",
     "acceptTermsRequired": "Ви повинні прийняти умови користування"
+  },
+  "products": {
+    "loading": "Завантаження товарів...",
+    "errorLoading": "Помилка завантаження товарів",
+    "totalProducts": "Всього товарів",
+    "inStock": "В наявності",
+    "lowStock": "Мало в наявності",
+    "outOfStock": "Немає в наявності",
+    "imagePlaceholder": "Зображення",
+    "stockLabel": "Запас",
+    "units": "штук",
+    "idLabel": "ID",
+    "addToOrder": "Додати до замовлення",
+    "inCart": "В кошику",
+    "remove": "Видалити",
+    "stockStatus": {
+      "inStock": "В наявності",
+      "lowStock": "Мало в наявності",
+      "outOfStock": "Немає в наявності"
+    },
+    "detail": {
+      "loading": "Завантаження товару...",
+      "errorLoading": "Помилка завантаження товару",
+      "notFound": "Товар не знайдено",
+      "backToProducts": "Назад до товарів",
+      "price": "Ціна",
+      "status": "Статус",
+      "stockQuantity": "Кількість на складі",
+      "productId": "ID товару",
+      "unit": "штука",
+      "unitsInCart": "в кошику",
+      "addMoreToCart": "Додати ще до кошика",
+      "removeFromCart": "Видалити з кошика"
+    }
+  },
+  "cart": {
+    "title": "Обрані товари",
+    "description": "Керуйте кошиком та створюйте замовлення",
+    "empty": {
+      "title": "Ваш кошик порожній",
+      "description": "Додайте товари до кошика, щоб створити замовлення"
+    },
+    "itemCount": {
+      "item": "товар",
+      "items": "товари",
+      "selected": "обрано"
+    },
+    "summary": {
+      "totalItems": "Всього товарів",
+      "totalValue": "Загальна вартість",
+      "products": "Товари"
+    },
+    "cartItems": "Товари в кошику",
+    "clearCart": "Очистити кошик",
+    "imagePlaceholder": "ФОТО",
+    "price": "Ціна",
+    "stock": "Запас",
+    "added": "Додано",
+    "order": {
+      "create": "Створити замовлення",
+      "customerName": "Ім'я клієнта",
+      "customerNamePlaceholder": "Введіть ім'я клієнта",
+      "email": "Електронна пошта",
+      "emailPlaceholder": "Введіть електронну адресу",
+      "subtotal": "Підсумок",
+      "total": "Всього",
+      "creating": "Створення замовлення...",
+      "createButton": "Створити замовлення"
+    }
+  },
+  "orders": {
+    "summary": {
+      "totalOrders": "Всього замовлень",
+      "pending": "Очікують",
+      "shipped": "Відправлені",
+      "delivered": "Доставлені"
+    },
+    "clearAllOrders": "Очистити всі замовлення",
+    "status": {
+      "pending": "Очікує",
+      "shipped": "Відправлено",
+      "delivered": "Доставлено",
+      "cancelled": "Скасовано"
+    },
+    "items": "товарів",
+    "actions": {
+      "ship": "Відправити",
+      "cancel": "Скасувати",
+      "deliver": "Доставити"
+    },
+    "orderItems": "Товари замовлення",
+    "imagePlaceholder": "ФОТО",
+    "empty": {
+      "noItems": "Немає товарів в цьому замовленні",
+      "noOrders": "Замовлення не знайдено"
+    }
   }
 } 

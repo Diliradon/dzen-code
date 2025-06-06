@@ -91,5 +91,101 @@
     "passwordMinLength": "Password must be at least 8 characters",
     "passwordsMatch": "Passwords don't match",
     "acceptTermsRequired": "You must accept the terms and conditions"
+  },
+  "products": {
+    "loading": "Loading products...",
+    "errorLoading": "Error loading products",
+    "totalProducts": "Total Products",
+    "inStock": "In Stock",
+    "lowStock": "Low Stock",
+    "outOfStock": "Out of Stock",
+    "imagePlaceholder": "Image",
+    "stockLabel": "Stock",
+    "units": "units",
+    "idLabel": "ID",
+    "addToOrder": "Add to Order",
+    "inCart": "In Cart",
+    "remove": "Remove",
+    "stockStatus": {
+      "inStock": "In Stock",
+      "lowStock": "Low Stock",
+      "outOfStock": "Out of Stock"
+    },
+    "detail": {
+      "loading": "Loading product...",
+      "errorLoading": "Error loading product",
+      "notFound": "Product not found",
+      "backToProducts": "Back to Products",
+      "price": "Price",
+      "status": "Status",
+      "stockQuantity": "Stock Quantity",
+      "productId": "Product ID",
+      "unit": "unit",
+      "unitsInCart": "in cart",
+      "addMoreToCart": "Add More to Cart",
+      "removeFromCart": "Remove from Cart"
+    }
+  },
+  "cart": {
+    "title": "Selected Products",
+    "description": "Manage your cart and create orders",
+    "empty": {
+      "title": "Your cart is empty",
+      "description": "Add some products to your cart to create an order"
+    },
+    "itemCount": {
+      "item": "item",
+      "items": "items",
+      "selected": "selected"
+    },
+    "summary": {
+      "totalItems": "Total Items",
+      "totalValue": "Total Value",
+      "products": "Products"
+    },
+    "cartItems": "Cart Items",
+    "clearCart": "Clear Cart",
+    "imagePlaceholder": "IMG",
+    "price": "Price",
+    "stock": "Stock",
+    "added": "Added",
+    "order": {
+      "create": "Create Order",
+      "customerName": "Customer Name",
+      "customerNamePlaceholder": "Enter customer name",
+      "email": "Email",
+      "emailPlaceholder": "Enter email address",
+      "subtotal": "Subtotal",
+      "total": "Total",
+      "creating": "Creating Order...",
+      "createButton": "Create Order"
+    }
+  },
+  "orders": {
+    "summary": {
+      "totalOrders": "Total Orders",
+      "pending": "Pending",
+      "shipped": "Shipped",
+      "delivered": "Delivered"
+    },
+    "clearAllOrders": "Clear All Orders",
+    "status": {
+      "pending": "Pending",
+      "shipped": "Shipped",
+      "delivered": "Delivered",
+      "cancelled": "Cancelled"
+    },
+    "items": "items",
+    "actions": {
+      "ship": "Ship",
+      "cancel": "Cancel",
+      "deliver": "Deliver"
+    },
+    "orderItems": "Order Items",
+    "imagePlaceholder": "IMG",
+    "empty": {
+      "noItems": "No items in this order",
+      "noOrders": "No orders found"
+    }
   }
 }
