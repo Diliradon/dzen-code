@@ -8,81 +8,106 @@ interface TopMenuProps {
   className?: string;
 }
 
+const TIME_INTERVAL = 1000;
+
 export const TopMenu = ({ className }: TopMenuProps) => {
-  const [currentTime, setCurrentTime] = useState(new Date());
-  const [activeSessions, setActiveSessions] = useState(0);
+  const [currentTime, setCurrentTime] = useState<Date>(new Date());
+  const [activeSessionsCount, setActiveSessionsCount] = useState<number>(0);
   const [, setSocket] = useState<Socket | null>(null);
+  const [isConnected, setIsConnected] = useState<boolean>(false);
 
-  // Update time every second
   useEffect(() => {
-    const timer = setInterval(() => {
+    const timeInterval = setInterval(() => {
       setCurrentTime(new Date());
-      // eslint-disable-next-line no-magic-numbers
-    }, 1000);
+    }, TIME_INTERVAL);
 
-    return () => clearInterval(timer);
+    return () => clearInterval(timeInterval);
   }, []);
 
-  // Socket.io connection for session counter
   useEffect(() => {
-    // Connect to Socket.io server
-    const socketInstance = io(
-      process.env.NEXT_PUBLIC_SOCKET_URL || 'http://localhost:3001',
-      {
-        transports: ['websocket'],
-      },
-    );
+    const socketInstance = io(process.env.NEXT_PUBLIC_API_URL, {
+      transports: ['websocket', 'polling'],
+    });
 
     setSocket(socketInstance);
 
-    // Listen for session count updates
-    socketInstance.on('activeSessionsCount', (count: number) => {
-      setActiveSessions(count);
+    socketInstance.on('connect', () => {
+      // eslint-disable-next-line no-console
+      console.log('Connected to socket server');
+      setIsConnected(true);
+
+      socketInstance.emit('getActiveSessionsCount', (count: number) => {
+        setActiveSessionsCount(count);
+      });
     });
 
-    // Notify server of new connection
-    socketInstance.emit('userConnected');
+    socketInstance.on('disconnect', () => {
+      // eslint-disable-next-line no-console
+      console.log('Disconnected from socket server');
+      setIsConnected(false);
+    });
 
-    // Cleanup on unmount
+    socketInstance.on('activeSessionsCount', (count: number) => {
+      setActiveSessionsCount(count);
+    });
+
+    socketInstance.on('connect_error', error => {
+      // eslint-disable-next-line no-console
+      console.error('Socket connection error:', error);
+      setIsConnected(false);
+    });
+
     return () => {
-      socketInstance.emit('userDisconnected');
       socketInstance.disconnect();
     };
   }, []);
 
-  const formatDate = (date: Date) => {
-    return date.toLocaleDateString('en-US', {
-      weekday: 'short',
+  const formatDateTime = (date: Date): string => {
+    return date.toLocaleString('en-US', {
       year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-    });
-  };
-
-  const formatTime = (date: Date) => {
-    return date.toLocaleTimeString('en-US', {
-      hour12: false,
+      month: '2-digit',
+      day: '2-digit',
       hour: '2-digit',
       minute: '2-digit',
       second: '2-digit',
+      hour12: false,
     });
   };
 
   return (
-    <div className={`flex items-center gap-4 ${className}`}>
-      <div className="flex items-center gap-2 rounded-lg bg-green-100 px-3 py-1 dark:bg-green-900/20">
-        <div className="h-2 w-2 animate-pulse rounded-full bg-green-500" />
-        <span className="text-sm font-medium text-green-700 dark:text-green-300">
-          {activeSessions} Active Sessions
-        </span>
-      </div>
-
-      <div className="flex flex-col items-end">
-        <div className="text-sm font-medium text-gray-900 dark:text-gray-100">
-          {formatDate(currentTime)}
+    <div
+      className={`${className} flex items-center justify-between border-b bg-white p-4 shadow-sm`}
+    >
+      <div className="flex items-center space-x-6 text-sm">
+        {/* Active Sessions Counter */}
+        <div className="flex items-center space-x-2">
+          <div
+            className={`h-2 w-2 rounded-full ${isConnected ? 'bg-green-500' : 'bg-red-500'}`}
+          />
+          <span className="text-gray-600">Active Sessions:</span>
+          <span className="rounded bg-blue-50 px-2 py-1 font-semibold text-blue-600">
+            {activeSessionsCount}
+          </span>
         </div>
-        <div className="font-mono text-sm font-bold text-gray-700 dark:text-gray-300">
-          {formatTime(currentTime)}
+
+        {/* Real-time Date and Time */}
+        <div className="flex items-center space-x-2">
+          <svg
+            className="h-4 w-4 text-gray-500"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span className="font-mono text-gray-700">
+            {formatDateTime(currentTime)}
+          </span>
         </div>
       </div>
     </div>
