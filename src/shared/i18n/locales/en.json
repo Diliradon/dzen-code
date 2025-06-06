@@ -1,6 +1,48 @@
 {
   "welcome": "Welcome",
   "language": "Language",
+  "homepage": {
+    "hero": {
+      "title": "Welcome to",
+      "appName": "Dzen Code",
+      "description": "A modern Next.js template with TypeScript, Tailwind CSS, and beautiful UI components. Get started by exploring your dashboard.",
+      "goToDashboard": "Go to Dashboard",
+      "learnMore": "Learn More"
+    },
+    "features": {
+      "title": "What's Included",
+      "description": "This template comes with everything you need to build modern web applications",
+      "nextjs": {
+        "title": "Next.js 14",
+        "description": "Built with the latest Next.js App Router for optimal performance and developer experience."
+      },
+      "typescript": {
+        "title": "TypeScript",
+        "description": "Fully typed with TypeScript for better development experience and fewer bugs."
+      },
+      "uiComponents": {
+        "title": "UI Components",
+        "description": "Beautiful, accessible UI components built with Tailwind CSS and Radix UI."
+      },
+      "modernTooling": {
+        "title": "Modern Tooling",
+        "description": "ESLint, Prettier, Husky, and other modern development tools configured out of the box."
+      },
+      "internationalization": {
+        "title": "Internationalization",
+        "description": "Built-in i18n support for creating multilingual applications with ease."
+      },
+      "authentication": {
+        "title": "Authentication Ready",
+        "description": "Pre-built authentication components and patterns for secure user management."
+      }
+    },
+    "cta": {
+      "title": "Ready to Get Started?",
+      "description": "Explore the dashboard to see all the features and components in action.",
+      "exploreDashboard": "Explore Dashboard"
+    }
+  },
   "auth": {
     "login": {
       "title": "Welcome back",
